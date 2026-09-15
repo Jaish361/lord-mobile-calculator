@@ -1,0 +1,67 @@
+{
+    "gems": [
+        {
+            "title": "Price per 100K Gems",
+            "prefix": "from",
+            "priceUsd": "$4.25",
+            "priceGbp": "\u00a33.29"
+        }
+    ],
+    "resources": [
+        {
+            "title": "44444",
+            "priceUsd": "$3.00",
+            "priceGbp": "\u00a32.30"
+        },
+        {
+            "title": "44442",
+            "priceUsd": "$2.70",
+            "priceGbp": "\u00a32.10"
+        },
+        {
+            "title": "44440",
+            "priceUsd": "$2.40",
+            "priceGbp": "\u00a31.90"
+        }
+    ],
+    "farmBots": [
+        {
+            "title": "Personal",
+            "priceUsd": "$2.50",
+            "priceGbp": "\u00a32.00",
+            "period": "per month"
+        },
+        {
+            "title": "Guild/Bank",
+            "priceUsd": "$5.00",
+            "priceGbp": "\u00a34.00",
+            "period": "per month"
+        },
+        {
+            "title": "Lease/Rent",
+            "priceUsd": "$6.50",
+            "priceGbp": "\u00a35.00",
+            "period": "per month"
+        }
+    ],
+    "diamonds": [
+        {
+            "title": "9999",
+            "subtitle": "+5-30% Bonus",
+            "priceUsd": "$96.00",
+            "priceGbp": "\u00a373.00"
+        },
+        {
+            "title": "4999",
+            "subtitle": "+5-30% Bonus",
+            "priceUsd": "$48.50",
+            "priceGbp": "\u00a337.00"
+        },
+        {
+            "title": "1999",
+            "subtitle": "+5-30% Bonus",
+            "priceUsd": "$19.20",
+            "priceGbp": "\u00a315.00"
+        }
+    ]
+}

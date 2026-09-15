@@ -1,0 +1,648 @@
+{
+    "speed-ups": [
+        {
+            "id": "speed-1m",
+            "title": "Speed Up 1m",
+            "price": 5,
+            "image": "/items/speed/1m.jpg"
+        },
+        {
+            "id": "speed-15m",
+            "title": "Speed Up 15m",
+            "price": 70,
+            "image": "/items/speed/15m.jpg"
+        },
+        {
+            "id": "speed-60m",
+            "title": "Speed Up 60m",
+            "price": 130,
+            "image": "/items/speed/60m.png"
+        },
+        {
+            "id": "speed-3h",
+            "title": "Speed Up 3h",
+            "price": 300,
+            "image": "/items/speed/3h.jpg"
+        },
+        {
+            "id": "speed-8h",
+            "title": "Speed Up 8h",
+            "price": 650,
+            "image": "/items/speed/8h.jpg"
+        },
+        {
+            "id": "speed-15h",
+            "title": "Speed Up 15h",
+            "price": 1000,
+            "image": "/items/speed/15h.jpg"
+        },
+        {
+            "id": "speed-24h",
+            "title": "Speed Up 24h",
+            "price": 1500,
+            "image": "/items/speed/24h.jpg"
+        },
+        {
+            "id": "speed-3d",
+            "title": "Speed Up 3 Days",
+            "price": 4400,
+            "image": "/items/speed/3d.jpg"
+        },
+        {
+            "id": "speed-7d",
+            "title": "Speed Up 7 Days",
+            "price": 10000,
+            "image": "/items/speed/7d.jpg"
+        },
+        {
+            "id": "speed-30d",
+            "title": "Speed Up 30 Days",
+            "price": 40000,
+            "image": "/items/speed/30d.jpg"
+        }
+    ],
+    "combat": [
+        {
+            "id": "talent-reset",
+            "title": "Talent Reset",
+            "price": 1000,
+            "image": "/items/boost/talentr.png"
+        },
+        {
+            "id": "random-relocator",
+            "title": "Random Relocator",
+            "price": 500,
+            "image": "/items/combat/randomrelo.png"
+        },
+        {
+            "id": "relocator",
+            "title": "Relocator",
+            "price": 1500,
+            "image": "/items/combat/relocator.png"
+        },
+        {
+            "id": "royal-pass",
+            "title": "Royal Pass",
+            "price": 100000,
+            "image": "/items/combat/royalpass.png"
+        },
+        {
+            "id": "army-size-20-4h",
+            "title": "Army Size Boost 20% 4h",
+            "price": 2400,
+            "image": "/items/combat/army20.png"
+        },
+        {
+            "id": "army-size-50-4h",
+            "title": "Army Size Boost 50% 4h",
+            "price": 5000,
+            "image": "/items/combat/army50.png"
+        },
+        {
+            "id": "winged-boots-25",
+            "title": "Winged Boots 25%",
+            "price": 500,
+            "image": "/items/combat/wingboost25.png"
+        },
+        {
+            "id": "winged-boots-50",
+            "title": "Winged Boots 50%",
+            "price": 900,
+            "image": "/items/combat/wingboost50.png"
+        },
+        {
+            "id": "atk-boost-20-12h",
+            "title": "Attack Boost 20% 12h",
+            "price": 250,
+            "image": "/items/combat/attack20.png"
+        },
+        {
+            "id": "atk-boost-20-24h",
+            "title": "Attack Boost 20% 24h",
+            "price": 400,
+            "image": "/items/combat/attack20.png"
+        },
+        {
+            "id": "def-boost-20-12h",
+            "title": "Army Defence Boost 20% 12h",
+            "price": 250,
+            "image": "/items/combat/defence20.png"
+        },
+        {
+            "id": "def-boost-20-24h",
+            "title": "Defence Boost 20% 24h",
+            "price": 400,
+            "image": "/items/combat/defence20.png"
+        },
+        {
+            "id": "shield-8h",
+            "title": "Shield 8 Hours",
+            "price": 500,
+            "image": "/items/combat/shield8h.png"
+        },
+        {
+            "id": "shield-12h",
+            "title": "Shield 12 Hours",
+            "price": 800,
+            "image": "/items/combat/shield12h.png"
+        },
+        {
+            "id": "shield-24h",
+            "title": "Shield 24 Hours",
+            "price": 1000,
+            "image": "/items/combat/shield24h.png"
+        },
+        {
+            "id": "shield-3d",
+            "title": "Shield 3 Days",
+            "price": 3500,
+            "image": "/items/combat/shield3d.png"
+        },
+        {
+            "id": "shield-7d",
+            "title": "Shield 7 Days",
+            "price": 10000,
+            "image": "/items/combat/shield7d.png"
+        },
+        {
+            "id": "shield-14d",
+            "title": "Shield 14 Days",
+            "price": 25000,
+            "image": "/items/combat/shield14d.png"
+        },
+        {
+            "id": "anti-scout-24h",
+            "title": "Anti-Scout 24h",
+            "price": 600,
+            "image": "/items/combat/antiscout24h.png"
+        },
+        {
+            "id": "anti-scout-3d",
+            "title": "Anti-Scout 3d",
+            "price": 1200,
+            "image": "/items/combat/antiscout3d.png"
+        },
+        {
+            "id": "anti-scout-7d",
+            "title": "Anti-Scout 7d",
+            "price": 3000,
+            "image": "/items/combat/antiscout7d.png"
+        },
+        {
+            "id": "withdraw-squad",
+            "title": "Withdraw Squad",
+            "price": 40,
+            "image": "/items/combat/recall.png"
+        }
+    ],
+    "boost": [
+        {
+            "id": "exp-boost-25-24h",
+            "title": "25% Player EXP Boost 24h",
+            "price": 2500,
+            "image": "/items/boost/playerexp25.png"
+        },
+        {
+            "id": "braveheart",
+            "title": "Braveheart",
+            "price": 2000,
+            "image": "/items/combat/braveheart.png"
+        },
+        {
+            "id": "lucky-tokens-1",
+            "title": "1 Luck Token",
+            "price": 720,
+            "image": "/items/boost/token1.png"
+        },
+        {
+            "id": "lucky-tokens-10",
+            "title": "10 Luck Tokens",
+            "price": 6600,
+            "image": "/items/boost/token10.png"
+        },
+        {
+            "id": "lucky-tokens-100",
+            "title": "100 Luck Tokens",
+            "price": 60000,
+            "image": "/items/boost/token100.png"
+        },
+        {
+            "id": "holy-stars-10",
+            "title": "10 Holy Stars",
+            "price": 30,
+            "image": "/items/boost/star10.png"
+        },
+        {
+            "id": "holy-stars-100",
+            "title": "100 Holy Stars",
+            "price": 240,
+            "image": "/items/boost/star100.png"
+        },
+        {
+            "id": "holy-stars-1000",
+            "title": "1000 Holy Stars",
+            "price": 2200,
+            "image": "/items/boost/star1000.png"
+        },
+        {
+            "id": "holy-stars-10000",
+            "title": "10000 Holy Stars",
+            "price": 20000,
+            "image": "/items/boost/star10k.png"
+        },
+        {
+            "id": "quest-scroll-admin",
+            "title": "Quest Scroll (Admin)",
+            "price": 800,
+            "image": "/items/boost/admins.png"
+        },
+        {
+            "id": "quest-scroll-guild",
+            "title": "Quest Scroll (Guild)",
+            "price": 1000,
+            "image": "/items/boost/guilds.png"
+        },
+        {
+            "id": "vip-100",
+            "title": "100 VIP Points",
+            "price": 150,
+            "image": "/items/boost/vip100.png"
+        },
+        {
+            "id": "vip-500",
+            "title": "500 VIP Points",
+            "price": 500,
+            "image": "/items/boost/vip500.png"
+        },
+        {
+            "id": "vip-1000",
+            "title": "1000 VIP Points",
+            "price": 1000,
+            "image": "/items/boost/vip1000.png"
+        },
+        {
+            "id": "vip-5000",
+            "title": "5000 VIP Points",
+            "price": 5000,
+            "image": "/items/boost/vip5000.png"
+        },
+        {
+            "id": "talent-tome",
+            "title": "Talent Tome",
+            "price": 1000,
+            "image": "/items/boost/talentt.png"
+        },
+        {
+            "id": "equipment-quill",
+            "title": "Equipment Quill",
+            "price": 1000,
+            "image": "/items/boost/equip.png"
+        },
+        {
+            "id": "revival-fruit",
+            "title": "Revival Fruit",
+            "price": 1000,
+            "image": "/items/boost/revive.png"
+        },
+        {
+            "id": "emote-stamp",
+            "title": "Emote Stamp",
+            "price": 1500,
+            "image": "/items/boost/emote.png"
+        }
+    ],
+    "resources": [
+        {
+            "id": "upkeep-25-24h",
+            "title": "Reduce Upkeep 25% 24h",
+            "price": 500,
+            "image": "/items/resource/upkeep25.jpg"
+        },
+        {
+            "id": "upkeep-25-7d",
+            "title": "Reduce Upkeep 25% 7d",
+            "price": 2800,
+            "image": "/items/resource/upkeep25.jpg"
+        },
+        {
+            "id": "upkeep-50-24h",
+            "title": "Reduce Upkeep 50% 24h",
+            "price": 2000,
+            "image": "/items/resource/upkeep50.jpg"
+        },
+        {
+            "id": "upkeep-50-7d",
+            "title": "Reduce Upkeep 50% 7d",
+            "price": 11200,
+            "image": "/items/resource/upkeep50.jpg"
+        },
+        {
+            "id": "gather-boost-50-24h",
+            "title": "Gather Boost 50% 24h",
+            "price": 600,
+            "image": "/items/resource/gatherboost.png"
+        },
+        {
+            "id": "gather-boost-50-7d",
+            "title": "Gather Boost 50% 7d",
+            "price": 3360,
+            "image": "/items/resource/gatherboost.png"
+        },
+        {
+            "id": "food-20m",
+            "title": "Bagged Food 20 Million",
+            "price": 10000,
+            "image": "/items/resource/food20m.png"
+        },
+        {
+            "id": "food-60m",
+            "title": "Bagged Food 60 Million",
+            "price": 28000,
+            "image": "/items/resource/food60m.png"
+        }
+    ],
+    "chests": [
+        {
+            "id": "rare-jewel-chest",
+            "title": "Rare Jewel Chest",
+            "price": 3000,
+            "image": "/items/chests/jewel3.png"
+        },
+        {
+            "id": "epic-jewel-chest",
+            "title": "Epic Jewel Chest",
+            "price": 6000,
+            "image": "/items/chests/jewel4.png"
+        },
+        {
+            "id": "legendary-jewel-chest",
+            "title": "Legendary Jewel Chest",
+            "price": 6000,
+            "image": "/items/chests/jewel5.png"
+        },
+        {
+            "id": "chisel-1",
+            "title": "Chisel I",
+            "price": 400,
+            "image": "/items/chests/chisel1.png"
+        },
+        {
+            "id": "chisel-2",
+            "title": "Chisel II",
+            "price": 1000,
+            "image": "/items/chests/chisel2.png"
+        },
+        {
+            "id": "chisel-3",
+            "title": "Chisel III",
+            "price": 2000,
+            "image": "/items/chests/chisel3.png"
+        },
+        {
+            "id": "chisel-4",
+            "title": "Chisel IV",
+            "price": 3000,
+            "image": "/items/chests/chisel4.png"
+        },
+        {
+            "id": "chisel-5",
+            "title": "Chisel V",
+            "price": 4000,
+            "image": "/items/chests/chisel5.png"
+        },
+        {
+            "id": "extractor-1",
+            "title": "Extractor I ",
+            "price": 600,
+            "image": "/items/chests/extractor1.jpg"
+        },
+        {
+            "id": "extractor-2",
+            "title": "Extractor II ",
+            "price": 1500,
+            "image": "/items/chests/extractor2.jpg"
+        },
+        {
+            "id": "extractor-3",
+            "title": "Extractor III ",
+            "price": 3000,
+            "image": "/items/chests/extractor3.jpg"
+        },
+        {
+            "id": "extractor-4",
+            "title": "Extractor IV ",
+            "price": 4500,
+            "image": "/items/chests/extractor4.jpg"
+        },
+        {
+            "id": "extractor-5",
+            "title": "Extractor V ",
+            "price": 6000,
+            "image": "/items/chests/extractor5.jpg"
+        },
+        {
+            "id": "rare-material-chest",
+            "title": "Rare Material Chest",
+            "price": 1500,
+            "image": "/items/chests/mat3.png"
+        },
+        {
+            "id": "epic-material-chest",
+            "title": "Epic Material Chest",
+            "price": 3000,
+            "image": "/items/chests/mat4.png"
+        },
+        {
+            "id": "legendary-material-chest",
+            "title": "Legendary Material Chest",
+            "price": 3000,
+            "image": "/items/chests/mat5.png"
+        }
+    ],
+    "buildings": [
+        {
+            "id": "gold-hammer",
+            "title": "Gold Hammer",
+            "price": 2000,
+            "image": "/items/building/hammer.png"
+        },
+        {
+            "id": "war-tome",
+            "title": "War Tome",
+            "price": 15,
+            "image": "/items/building/tomesb.png"
+        },
+        {
+            "id": "steel-cuffs",
+            "title": "Steel Cuffs",
+            "price": 15,
+            "image": "/items/building/steel.png"
+        },
+        {
+            "id": "soul-crystal",
+            "title": "Soul Crystal",
+            "price": 15,
+            "image": "/items/building/soul.png"
+        },
+        {
+            "id": "crystal-pickaxe",
+            "title": "Crystal Pickaxe",
+            "price": 20,
+            "image": "/items/building/crystal.png"
+        },
+        {
+            "id": "finish-demolition",
+            "title": "Finish Demolition",
+            "price": 20,
+            "image": "/items/building/finishdem.png"
+        },
+        {
+            "id": "gravel",
+            "title": "Gravel",
+            "price": 1500,
+            "image": "/items/building/gravel.png"
+        },
+        {
+            "id": "archaic-tome",
+            "title": "Archaic Tome",
+            "price": 900,
+            "image": "/items/building/archaict.png"
+        }
+    ],
+    "familiar": [
+        {
+            "id": "chaos-core",
+            "title": "Chaos Core",
+            "price": 7500,
+            "image": "/items/familiar/chaoscore.png"
+        },
+        {
+            "id": "ancient-core",
+            "title": "Ancient Core",
+            "price": 1000,
+            "image": "/items/familiar/ancientcore.png"
+        },
+        {
+            "id": "pact-merging-boost-10-1h",
+            "title": "10% Pact Merging Boost 1h",
+            "price": 1000,
+            "image": "/items/familiar/mergeboost.png"
+        },
+        {
+            "id": "merge-1m",
+            "title": "Merge Speed Up 1m",
+            "price": 260,
+            "image": "/items/familiar/merge1m.png"
+        },
+        {
+            "id": "merge-15m",
+            "title": "Merge Speed Up 15m",
+            "price": 260,
+            "image": "/items/familiar/merge15m.png"
+        },
+        {
+            "id": "merge-60m",
+            "title": "Merge Speed Up 60m",
+            "price": 260,
+            "image": "/items/familiar/merge60m.png"
+        },
+        {
+            "id": "merge-3h",
+            "title": "Merge Speed Up 3h",
+            "price": 600,
+            "image": "/items/familiar/merge3h.png"
+        },
+        {
+            "id": "merge-8h",
+            "title": "Merge Speed Up 8h",
+            "price": 1300,
+            "image": "/items/familiar/merge8h.png"
+        },
+        {
+            "id": "merge-24h",
+            "title": "Merge Speed Up 24h",
+            "price": 3000,
+            "image": "/items/familiar/merge24h.png"
+        },
+        {
+            "id": "merge-3d",
+            "title": "Merge Speed Up 3 Days",
+            "price": 8800,
+            "image": "/items/familiar/merge3d.png"
+        },
+        {
+            "id": "merge-7d",
+            "title": "Merge Speed Up 7 Days",
+            "price": 20000,
+            "image": "/items/familiar/merge7d.png"
+        },
+        {
+            "id": "anima-2m",
+            "title": "2M Anima",
+            "price": 10000,
+            "image": "/items/familiar/anima2m.png"
+        },
+        {
+            "id": "anima-6m",
+            "title": "6M Anima",
+            "price": 28000,
+            "image": "/items/familiar/anima6m.png"
+        },
+        {
+            "id": "bright-talent-orb",
+            "title": "Bright Talent Orb",
+            "price": 3000,
+            "image": "/items/familiar/brighttalentorb.png"
+        },
+        {
+            "id": "brilliant-talent-orb",
+            "title": "Brilliant Talent Orb",
+            "price": 7500,
+            "image": "/items/familiar/brillianttalentorb.png"
+        }
+    ],
+    "monster-hunt": [
+        {
+            "id": "mh-atk-boost-25",
+            "title": "25% Monster Hunt ATK Boost",
+            "price": 1000,
+            "image": "/items/monster/mhboost25.png"
+        },
+        {
+            "id": "energy-1000",
+            "title": "1000 Energy",
+            "price": 250,
+            "image": "/items/monster/eng1.png"
+        },
+        {
+            "id": "energy-2000",
+            "title": "2000 Energy",
+            "price": 475,
+            "image": "/items/monster/eng2.png"
+        },
+        {
+            "id": "energy-5000",
+            "title": "5000 Energy",
+            "price": 1125,
+            "image": "/items/monster/eng5.png"
+        },
+        {
+            "id": "energy-10000",
+            "title": "10000 Energy",
+            "price": 2000,
+            "image": "/items/monster/eng10.png"
+        },
+        {
+            "id": "energy-20000",
+            "title": "20000 Energy",
+            "price": 3500,
+            "image": "/items/monster/eng20.png"
+        },
+        {
+            "id": "energy-50000",
+            "title": "50000 Energy",
+            "price": 7500,
+            "image": "/items/monster/eng50.png"
+        }
+    ]
+}
