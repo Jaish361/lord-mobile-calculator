@@ -1,95 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useNavigation } from './NavigationContext';
 import { HEROISM_CONFIG, CONTACT_LINKS } from '../config/contact';
 import { Icon } from '@iconify/react';
-import axios from 'axios';
-
-interface HuntData {
-  guild: string;
-  time: number;
-  requirements?: string;
-  monster?: string;
-}
-
-const api = axios.create({
-  baseURL: 'https://api.lordsmobilegemcalculator.com',
-  timeout: 4000,
-});
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [huntData, setHuntData] = useState<HuntData | null>(null);
-  const [countdown, setCountdown] = useState<number | null>(null);
-  const [huntError, setHuntError] = useState(false);
-
   const { selectedPage } = useNavigation();
+  const location = useLocation();
 
-  // Redesigned navigation links matching user instructions
+  // Navigation links
   const navLinks = [
-    { title: 'Gem Calculator', to: '/' },
-    { title: 'Farm & Rein Bots', to: '/bots' },
-    { title: 'War Bots x KvK', to: '/war-bots' },
-    { title: 'About Us', to: '/about' },
-    { title: 'Contact Us', to: '/contact' },
+    { title: 'Gem Calculator', to: '/', icon: 'material-symbols:diamond-outline-rounded' },
+    { title: 'Farm & Rein Bots', to: '/bots', icon: 'lucide:bot' },
+    { title: 'War Bots x KvK', to: '/war-bots', icon: 'lucide:swords' },
+    { title: 'About Us', to: '/about', icon: 'lucide:crown' },
+    { title: 'Contact Us', to: '/contact', icon: 'lucide:message-square' },
   ];
 
-  // Fetch /hunt status
+  // Close mobile menu whenever the active route changes
   useEffect(() => {
-    let isMounted = true;
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
-    const loadHunt = async () => {
-      try {
-        const response = await api.get('/hunt');
-        const data = response.data;
-        if (!data || data.time === 0 || data.time === undefined || data.time === null) {
-          if (isMounted) setHuntError(true);
-          return;
-        }
-        if (isMounted) {
-          setHuntData(data);
-          const targetMs = data.time < 1e10 ? data.time * 1000 : data.time;
-          const diffSeconds = Math.floor((targetMs - Date.now()) / 1000);
-          setCountdown(diffSeconds);
-        }
-      } catch (err) {
-        if (isMounted) setHuntError(true);
-      }
-    };
-
-    loadHunt();
-
+  // Lock document body scroll when mobile navigation panel is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
     return () => {
-      isMounted = false;
+      document.body.style.overflow = '';
     };
-  }, []);
-
-  // Countdown timer ticker
-  useEffect(() => {
-    if (countdown === null) return;
-    const interval = setInterval(() => {
-      setCountdown(prev => (prev !== null ? prev - 1 : null));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [countdown]);
-
-  const formatTime = (totalSeconds: number) => {
-    const abs = Math.abs(totalSeconds);
-    const h = Math.floor(abs / 3600);
-    const m = Math.floor((abs % 3600) / 60);
-    const s = abs % 60;
-    const pad = (n: number) => String(n).padStart(2, '0');
-    return `${h}:${pad(m)}:${pad(s)}`;
-  };
+  }, [mobileMenuOpen]);
 
   return (
-    <div className="w-full relative top-0 left-0 z-[100] flex flex-col select-none">
-      
-      {/* Top Main Navigation Bar */}
-      <nav className="relative flex flex-row items-center justify-between z-[100] min-h-20 px-3 md:px-6 lg:px-16 bg-gradient-to-r from-[#070911] via-[#0F1527] to-[#070911] border-b border-amber-500/20 shadow-xl backdrop-blur-md">
+    <header className="sticky top-0 left-0 right-0 z-50 w-full bg-[#070911] border-b border-amber-500/20 shadow-xl backdrop-blur-md select-none">
+      {/* Top Header Bar */}
+      <div className="relative flex flex-row items-center justify-between h-[72px] sm:h-20 px-3.5 sm:px-6 lg:px-12 bg-gradient-to-r from-[#070911] via-[#0F1527] to-[#070911]">
         
         {/* Brand Logo: HEROISM */}
-        <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0 pr-2">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-yellow-600 p-[1.5px] shadow-glow-gold group-hover:scale-105 transition-transform duration-200 shrink-0">
             <div className="w-full h-full bg-[#090C16] rounded-[10px] flex items-center justify-center text-amber-400">
               <Icon icon="lucide:crown" className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />
@@ -97,7 +49,7 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="font-headline text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500 tracking-wider">
+              <span className="font-headline text-lg sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500 tracking-wider">
                 HEROISM
               </span>
               <span className="text-[9px] sm:text-[10px] uppercase font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 shrink-0">
@@ -110,7 +62,7 @@ export const Navbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Links */}
+        {/* Desktop Links (lg and up) */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map(link => (
             <Link
@@ -130,7 +82,7 @@ export const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Right CTA Desks */}
+        {/* Right CTA Desks on Desktop / Tablet */}
         <div className="hidden sm:flex items-center gap-2.5">
           <a
             href={CONTACT_LINKS.telegramGroup}
@@ -153,28 +105,43 @@ export const Navbar: React.FC = () => {
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile Hamburger / Close Toggle Button */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-xl text-amber-400 hover:bg-white/5 active:scale-95 transition-all focus:outline-none"
-          aria-label="Toggle navigation menu"
+          type="button"
+          onClick={() => setMobileMenuOpen(prev => !prev)}
+          className="lg:hidden w-11 h-11 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/10 hover:border-amber-500/30 active:scale-95 text-amber-400 flex items-center justify-center transition-all focus:outline-none shrink-0 touch-manipulation cursor-pointer"
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {mobileMenuOpen ? (
+            <Icon icon="lucide:x" className="w-6 h-6 text-amber-300" />
+          ) : (
+            <Icon icon="lucide:menu" className="w-6 h-6 text-amber-400" />
+          )}
         </button>
+      </div>
 
-        {/* Mobile Dropdown Menu */}
+      {/* Mobile Backdrop Overlay */}
+      {mobileMenuOpen && (
         <div
-          className={`lg:hidden absolute left-0 right-0 top-full bg-[#080B15]/98 backdrop-blur-xl border-b border-amber-500/30 shadow-2xl p-4 sm:p-6 transition-all duration-200 z-[100] ${
-            mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-          }`}
+          className="lg:hidden fixed inset-x-0 bottom-0 top-[72px] sm:top-20 bg-black/75 backdrop-blur-xs z-40 transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Navigation Panel - Dedicated, Opaque, Positioned Directly Below Header */}
+      {mobileMenuOpen && (
+        <nav
+          aria-label="Mobile Navigation"
+          className="lg:hidden absolute top-full left-0 right-0 w-full z-50 bg-[#0B0F1E] border-b border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.95)] max-h-[calc(100dvh-72px)] sm:max-h-[calc(100dvh-80px)] overflow-y-auto overscroll-contain"
         >
-          <div className="flex flex-col gap-2">
+          <div className="p-4 sm:p-5 flex flex-col gap-2">
+            
+            <div className="px-1 pb-1 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+              Navigation Menu
+            </div>
+
             {navLinks.map(link => {
               const isActive = selectedPage === link.to;
               return (
@@ -182,62 +149,67 @@ export const Navbar: React.FC = () => {
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-space-grotesk text-base font-semibold transition-all ${
+                  className={`flex items-center justify-between px-3.5 py-3 rounded-xl font-space-grotesk text-sm sm:text-base font-semibold transition-all touch-manipulation cursor-pointer ${
                     isActive
-                      ? 'bg-amber-500/15 text-amber-300 border border-amber-500/30 font-bold'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'bg-amber-500/15 text-amber-300 border border-amber-500/40 font-bold shadow-glow-gold'
+                      : 'text-slate-200 hover:text-white hover:bg-white/5 border border-transparent'
                   }`}
                 >
-                  <span>{link.title}</span>
-                  {isActive && <span className="w-2 h-2 rounded-full bg-amber-400 shadow-glow-gold" />}
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                      isActive ? 'bg-amber-500/20 text-amber-400' : 'bg-white/5 text-slate-400'
+                    }`}>
+                      <Icon icon={link.icon} className="text-lg" />
+                    </div>
+                    <span>{link.title}</span>
+                  </div>
+
+                  {isActive ? (
+                    <span className="flex items-center gap-1.5 text-[11px] font-mono text-amber-400 font-bold">
+                      <span>Active</span>
+                      <span className="w-2 h-2 rounded-full bg-amber-400 shadow-glow-gold animate-pulse" />
+                    </span>
+                  ) : (
+                    <Icon icon="lucide:chevron-right" className="w-4 h-4 text-slate-500" />
+                  )}
                 </Link>
               );
             })}
 
-            <div className="flex flex-col gap-2 pt-3 mt-1 border-t border-white/10">
+            {/* Official Community Desks */}
+            <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-amber-500/20">
+              <div className="px-1 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                Official Communities
+              </div>
+
               <a
                 href={CONTACT_LINKS.telegramGroup}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-sky-500/15 text-sky-300 border border-sky-500/40 font-bold text-sm hover:bg-sky-500/25 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full min-h-[44px] py-3 rounded-xl bg-sky-500/15 text-sky-300 border border-sky-500/40 font-bold text-sm hover:bg-sky-500/25 active:scale-[0.98] transition-all touch-manipulation"
               >
-                <Icon icon="mdi:telegram" className="text-xl" />
-                Join Telegram Community
+                <Icon icon="mdi:telegram" className="text-xl text-sky-400" />
+                <span>Join Telegram Community</span>
               </a>
+
               <a
                 href={CONTACT_LINKS.whatsappGroup}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 font-bold text-sm hover:bg-emerald-500/25 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full min-h-[44px] py-3 rounded-xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 font-bold text-sm hover:bg-emerald-500/25 active:scale-[0.98] transition-all touch-manipulation"
               >
-                <Icon icon="mdi:whatsapp" className="text-xl" />
-                Join WhatsApp VIP Group
+                <Icon icon="mdi:whatsapp" className="text-xl text-emerald-400" />
+                <span>Join WhatsApp VIP Group</span>
               </a>
             </div>
-          </div>
-        </div>
-      </nav>
 
-      {/* Live Hunt Bus Boarding Banner */}
-      {!huntError && huntData && countdown !== null && (
-        <div className="relative flex flex-row items-center justify-center z-[90] min-h-7 px-4 bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 shadow-md">
-          <p className="text-[#070911] font-bold font-space-grotesk text-[11px] sm:text-[13px] tracking-wide text-center">
-            {countdown >= 0 ? (
-              <>
-                <span className="uppercase font-extrabold bg-[#070911] text-amber-400 px-1.5 py-0.5 rounded mr-1.5">LIVE</span>
-                Guild [{huntData.guild}] Boarding in{' '}
-                <span className="underline decoration-black underline-offset-2">{formatTime(countdown)}</span> | Req:{' '}
-                {huntData.requirements} | Target: {huntData.monster}
-              </>
-            ) : (
-              <>
-                Guild [{huntData.guild}] Boarded{' '}
-                <span className="font-extrabold">{formatTime(countdown)}</span> Ago | {huntData.requirements} | {huntData.monster}
-              </>
-            )}
-          </p>
-        </div>
+          </div>
+        </nav>
       )}
-    </div>
+    </header>
   );
 };
+
+export default Navbar;
